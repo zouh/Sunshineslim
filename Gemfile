@@ -8,6 +8,8 @@ gem 'bcrypt-ruby'
 # Use postgresql as the database for Active Record
 gem 'pg' 
 
+gem 'factory_girl_rails'
+
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
