@@ -23,7 +23,7 @@ class CreateNutritionFacts < ActiveRecord::Migration
       t.timestamps
     end
     
-    add_index :nutrition_facts, :code
+    add_index :nutrition_facts, :code, unique: true
     add_index :nutrition_facts, :name, unique: true
   end
 end

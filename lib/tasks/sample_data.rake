@@ -12,18 +12,18 @@ end
 def make_users
   admin = User.create!(name:     "administrator",
                        email:    "example@railstutorial.org",
-                       password: "p@ssw0rd",
-                       password_confirmation: "p@ssw0rd",
+                       password: "password",
+                       password_confirmation: "password",
                        admin: true)
   zouh = User.create!(name:     "zouh",
-                       email:    "example1@railstutorial.org",
-                       password: "p@ssw0rd",
-                       password_confirmation: "p@ssw0rd",
+                       email:    "example-1@railstutorial.org",
+                       password: "password",
+                       password_confirmation: "password",
                        admin: true)
   achi = User.create!(name:     "achi",
-                       email:    "example2@railstutorial.org",
-                       password: "p@ssw0rd",
-                       password_confirmation: "p@ssw0rd",
+                       email:    "example-2@railstutorial.org",
+                       password: "password",
+                       password_confirmation: "password",
                        admin: true)
   97.times do |n|
     name  = Faker::Name.name
@@ -62,10 +62,10 @@ end
 def make_units
   g = Unit.create!(code: "g", name: "克", unit_group_id: 1)
   ml = Unit.create!(code: "ml", name: "毫升", unit_group_id: 2)
-  kj = Unit.create!(code: "kJ", name: "千焦", unit_group_id: 3)
-  ug = Unit.create!(code: "μg", name: "微克", unit_group_id: 1)
-  mg = Unit.create!(code: "mg", name: "毫克", unit_group_id: 1)
   kg = Unit.create!(code: "kg", name: "千克", unit_group_id: 1)
+  mg = Unit.create!(code: "mg", name: "毫克", unit_group_id: 1) 
+  ug = Unit.create!(code: "μg", name: "微克", unit_group_id: 1)
   l = Unit.create!(code: "L", name: "升", unit_group_id: 2)
+  kj = Unit.create!(code: "kJ", name: "千焦", unit_group_id: 3)
   kcal = Unit.create!(code: "kcal", name: "千卡", unit_group_id: 3)
 end
