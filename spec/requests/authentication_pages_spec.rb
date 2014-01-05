@@ -160,6 +160,19 @@ describe "Authentication" do
         before { delete user_path(user) }
         specify { expect(response).to redirect_to(root_path) }
       end
+
+      describe "in the Nutrition Facts controller" do
+
+        describe "submitting to the create action" do
+          before { post nutrition_facts_path }
+          specify { expect(response).to redirect_to(root_path) }
+        end
+
+        describe "submitting to the destroy action" do
+          before { delete nutrition_facts_path(FactoryGirl.create(:nutrition_fact)) }
+          specify { expect(response).to redirect_to(root_path) }
+        end
+      end
     end
   end
 end

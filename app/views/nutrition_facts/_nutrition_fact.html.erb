@@ -1,0 +1,27 @@
+<tr>
+  <td><%= nutrition_fact.code %></td>
+  <td><%= nutrition_fact.name %></td>
+  <td><%= nutrition_fact.size %><%= nutrition_fact.size_unit.code %></td>
+  <td><%= nutrition_fact.serving_size %><%= nutrition_fact.size_unit.code %></td>
+  <td><%= nutrition_fact.servings %></td>
+  <td><%= nutrition_fact.energy %>kJ&nbsp;&nbsp;</td>
+  <td><%= nutrition_fact.energy_percent %>%</td>
+  <td><%= nutrition_fact.protein %>g&nbsp;&nbsp;</td>
+  <td><%= nutrition_fact.protein_percent %>%</td>
+  <td><%= nutrition_fact.fat %>g&nbsp;&nbsp;</td>
+  <td><%= nutrition_fact.fat_percent %>%</td>
+  <td><%= nutrition_fact.carbohydrate %>g&nbsp;&nbsp;</td>
+  <td><%= nutrition_fact.carbohydrate_percent %>%</td>
+  <td><%= nutrition_fact.sodium %>mg&nbsp;&nbsp;</td>
+  <td><%= nutrition_fact.sodium_percent %>%</td>
+  <td><%= nutrition_fact.created_by_user.name %></td>
+  <td>    
+    <% if nutrition_fact.updated_by_user != nil %>
+      <% nutrition_fact.updated_by_user.name %>
+    <% end %>
+  </td>
+  <td><%= link_to '查看', nutrition_fact_path(nutrition_fact) %></td>
+  <td><%= link_to '编辑', edit_nutrition_fact_path(nutrition_fact) %></td>
+  <td><%= link_to '删除', nutrition_fact_path(nutrition_fact), method: :delete, data: { confirm: '确定删除吗？' } %></td>
+</tr>
+

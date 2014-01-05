@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
                                    class_name:  "Relationship",
                                    dependent:   :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
+  has_many :nutrition_facts, foreign_key: "created_by"
+  #has_many :modified_nutrition_facts, foreign_key: "updated_by"
   
   before_save { email.downcase! }
   before_create :create_remember_token

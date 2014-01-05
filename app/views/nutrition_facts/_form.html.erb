@@ -1,0 +1,101 @@
+<%= form_for(@nutrition_fact) do |f| %>
+  <% if @nutrition_fact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@nutrition_fact.errors.count, "error") %> prohibited this nutrition_fact from being saved:</h2>
+
+      <ul>
+      <% @nutrition_fact.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :bar_code, '条码' %><br>
+    <%= f.text_field :bar_code %>
+  </div>
+  <div class="field">
+    <%= f.label :code, '编码' %><br>
+    <%= f.text_field :code %>
+  </div>
+  <div class="field">
+    <%= f.label :name, '名称' %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description, '说明' %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :size, '数量 (商品包装上的重量或容积)' %><br>
+    <%= f.text_field :size %>
+  </div>
+  <div class="field">
+    <%= f.label :size_unit, '数量单位 (g / ml)' %><br>
+    <%= f.text_field :size_unit %>
+  </div>
+  <div class="field">
+    <%= f.label :serving_size, '每份数量 (营养标签上使用的基准数量，一般为100)' %><br>
+    <%= f.text_field :serving_size %>
+  </div>
+  <div class="field">
+    <%= f.label :servings, '份数 (= 数量 / 每份数量)' %><br>
+    <%= f.text_field :servings %>
+  </div>
+  <div class="field">
+    <%= f.label :energy, '能量' %><br>
+    <%= f.text_field :energy %>
+  </div>
+  <div class="field">
+    <%= f.label :energy_unit, '能量单位 (kJ / kcal)' %><br>
+    <%= f.text_field :energy_unit %>
+  </div>
+  <div class="field">
+    <%= f.label :energy_percent, '能量 %NRV' %><br>
+    <%= f.number_field :energy_percent %>
+  </div>
+  <div class="field">
+    <%= f.label :protein, '蛋白质 (g)' %><br>
+    <%= f.text_field :protein %>
+  </div>
+  <div class="field">
+    <%= f.label :protein_percent, '蛋白质 %NRV' %><br>
+    <%= f.number_field :protein_percent %>
+  </div>
+  <div class="field">
+    <%= f.label :fat, '脂肪 (g)' %><br>
+    <%= f.text_field :fat %>
+  </div>
+  <div class="field">
+    <%= f.label :fat_percent, '脂肪 %NRV' %><br>
+    <%= f.number_field :fat_percent %>
+  </div>
+  <div class="field">
+    <%= f.label :carbohydrate, '碳水化合物 (g)' %><br>
+    <%= f.text_field :carbohydrate %>
+  </div>
+  <div class="field">
+    <%= f.label :carbohydrate_percent, '碳水化合物 %NRV' %><br>
+    <%= f.number_field :carbohydrate_percent %>
+  </div>
+  <div class="field">
+    <%= f.label :sodium, '盐 (mg)' %><br>
+    <%= f.text_field :sodium %>
+  </div>
+  <div class="field">
+    <%= f.label :sodium_percent, '盐 %NRV' %><br>
+    <%= f.number_field :sodium_percent %>
+  </div>
+  <div class="field">
+    <%= f.label :created_by, '创建人' %><br>
+    <%= f.text_field :created_by %>
+  </div>
+  <div class="field">
+    <%= f.label :updated_by, '修改人' %><br>
+    <%= f.text_field :updated_by %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -25,6 +25,8 @@ describe User do
   it { should respond_to(:followers) }
   it { should respond_to(:following?) }
   it { should respond_to(:follow!) }
+  it { should respond_to(:nutrition_facts) }
+  #it { should respond_to(:modified_nutrition_facts) }
 
   it { should be_valid }
   it { should_not be_admin }
@@ -160,16 +162,6 @@ describe User do
       let(:unfollowed_post) do
         FactoryGirl.create(:micropost, user: FactoryGirl.create(:user))
       end
-
-      its(:feed) { should include(newer_micropost) }
-      its(:feed) { should include(older_micropost) }
-      its(:feed) { should_not include(unfollowed_post) }
-    end
-    
-    describe "status" do
-      let(:unfollowed_post) do
-        FactoryGirl.create(:micropost, user: FactoryGirl.create(:user))
-      end
       let(:followed_user) { FactoryGirl.create(:user) }
 
       before do
@@ -208,6 +200,22 @@ describe User do
 
       it { should_not be_following(other_user) }
       its(:followed_users) { should_not include(other_user) }
+    end
+  end
+
+  describe "nutrition_fact associations" do
+
+    before { @user.save }
+
+    let!(:second_nutrition_fact) do
+      FactoryGirl.create(:nutrition_fact, code: "22-2-222", name: "22-2-222", created_by_user: @user)
+    end
+    let!(:first_nutrition_fact) do
+      FactoryGirl.create(:nutrition_fact, code: "11-1-111", name: "11-1-111", created_by_user: @user)
+    end
+
+    it "should have the right nutrition_facts in the right order" do
+      expect(@user.nutrition_facts.to_a).to eq [first_nutrition_fact, second_nutrition_fact]
     end
   end
 end
