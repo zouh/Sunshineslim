@@ -94,8 +94,8 @@
     <strong>修改人：</strong>
   </div>
   <div class="col-lg-2">
-    <% if @nutrition_fact.updated_by_user != nil %>
-      <% @nutrition_fact.updated_by_user.name %>
+    <% if @nutrition_fact.updated_by_user %>
+      <%= @nutrition_fact.updated_by_user.name %>
     <% end %>
   </div>
 </div>

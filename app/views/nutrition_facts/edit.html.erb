@@ -15,7 +15,8 @@
 	    <strong>修改人：</strong>
 	  </div>
 	  <div class="col-lg-2">
-		<%= current_user.name %>
+		<%= @nutrition_fact.updated_by_user.name %>
+		<!--<%= hidden_field :nutrition_fact, :updated_by %>-->
 	  </div>
 	  <div class="col-lg-3">
 	    <%= f.submit "保存", class: "btn btn-large btn-primary" %>

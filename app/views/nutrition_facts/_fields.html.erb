@@ -37,7 +37,7 @@
     <%= f.label :size_unit_id, '单位：', class: "control-label" %>
   </div>
   <div class="col-md-2">
-    <%= f.select :size_unit_id, options_from_collection_for_select(Unit.where('unit_group_id in (1, 2)'), :id, :name) %>
+    <%= f.select :size_unit_id, options_from_collection_for_select(Unit.where('id in (1, 2)'), :id, :name) %>
   </div>
   <div class="col-lg-1">
     <%= f.label :servings, '份数：', class: "control-label" %>

@@ -4,6 +4,8 @@ class NutritionFactsController < ApplicationController
 
   def new
     @nutrition_fact = NutritionFact.new
+    @nutrition_fact.serving_size = 100.0
+    @nutrition_fact.size_unit_id = 1
   end
 
   def index
@@ -33,6 +35,7 @@ class NutritionFactsController < ApplicationController
   end
 
   def edit
+    @nutrition_fact.updated_by = current_user.id
   end
 
   def update

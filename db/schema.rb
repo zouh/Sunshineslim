@@ -13,30 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20140103124427) do
 
-  create_table "_nutrition_facts_old_20131223", force: true do |t|
-    t.string   "code"
-    t.string   "name"
-    t.integer  "size_unit"
-    t.decimal  "size"
-    t.decimal  "serving_size"
-    t.decimal  "servings"
-    t.decimal  "energy"
-    t.integer  "energy_unit"
-    t.integer  "energy_percent"
-    t.decimal  "protein"
-    t.integer  "protein_percent"
-    t.decimal  "fat"
-    t.integer  "fat_percent"
-    t.decimal  "carbohydrate"
-    t.integer  "carbohydrate_percent"
-    t.decimal  "sodium"
-    t.integer  "sodium_percent"
-    t.integer  "created_by"
-    t.integer  "updated_by"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "microposts", force: true do |t|
     t.string   "content"
     t.integer  "user_id"
@@ -49,7 +25,7 @@ ActiveRecord::Schema.define(version: 20140103124427) do
   create_table "nutrition_facts", force: true do |t|
     t.string   "code"
     t.string   "name"
-    t.integer  "size_unit"
+    t.integer  "size_unit_id"
     t.decimal  "size"
     t.decimal  "serving_size"
     t.decimal  "servings"
@@ -69,7 +45,8 @@ ActiveRecord::Schema.define(version: 20140103124427) do
     t.datetime "updated_at"
   end
 
-  add_index "nutrition_facts", ["code"], name: "index_nutrition_facts_on_code"
+  add_index "nutrition_facts", ["code"], name: "index_nutrition_facts_on_code", unique: true
+  add_index "nutrition_facts", ["name"], name: "index_nutrition_facts_on_name", unique: true
 
   create_table "relationships", force: true do |t|
     t.integer  "follower_id"
@@ -88,6 +65,8 @@ ActiveRecord::Schema.define(version: 20140103124427) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "unit_groups", ["code"], name: "index_unit_groups_on_code", unique: true
 
   create_table "units", force: true do |t|
     t.string   "code"
@@ -109,6 +88,7 @@ ActiveRecord::Schema.define(version: 20140103124427) do
     t.boolean  "admin",           default: false
   end
 
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
 end
