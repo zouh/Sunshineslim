@@ -1,6 +1,5 @@
 <% provide(:title, '营养成分列表') %>
 <h1>营养成分列表</h1>
-<p><%= link_to '新增', new_nutrition_fact_path %></p>
 <%= will_paginate %>
 <table class="table table-striped">
   <tr>
@@ -22,7 +21,7 @@
     <th>创建人</th>
     <th>修改人</th>
     <th></th>
-    <th></th>
+    <th><%= link_to '新增', new_nutrition_fact_path %></th>
     <th></th>
   </tr>
   <tbody>
