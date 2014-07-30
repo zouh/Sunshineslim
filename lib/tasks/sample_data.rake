@@ -10,29 +10,39 @@ namespace :db do
 end
 
 def make_users
-  admin = User.create!(name:     "administrator",
+  admin = User.create!(name:     "admin",
                        email:    "example@railstutorial.org",
-                       password: "password",
-                       password_confirmation: "password",
+                       password: "admin",
+                       password_confirmation: "admin",
                        admin: true)
   zouh = User.create!(name:     "zouh",
                        email:    "example-1@railstutorial.org",
-                       password: "password",
-                       password_confirmation: "password",
+                       password: "zouh",
+                       password_confirmation: "zouh",
                        admin: true)
-  achi = User.create!(name:     "achi",
+  ygh = User.create!(name:     "ygh",
                        email:    "example-2@railstutorial.org",
-                       password: "password",
-                       password_confirmation: "password",
+                       password: "ygh",
+                       password_confirmation: "ygh",
                        admin: true)
-  97.times do |n|
+  yyc = User.create!(name:     "yyc",
+                       email:    "example-3@railstutorial.org",
+                       password: "yyc",
+                       password_confirmation: "yyc",
+                       admin: true)
+  hhf = User.create!(name:     "hhf",
+                       email:    "example-4@railstutorial.org",
+                       password: "hhf",
+                       password_confirmation: "hhf",
+                       admin: true)
+  95.times do |n|
     name  = Faker::Name.name
-    email = "example-#{n+3}@railstutorial.org"
-    password  = "password"
+    email = "example-#{n+5}@railstutorial.org"
+    password  = "user"
     User.create!(name:     name,
                  email:    email,
-                 password: password,
-                 password_confirmation: password)
+                 password: user,
+                 password_confirmation: user)
   end
 end
 
